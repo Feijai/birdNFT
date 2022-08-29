@@ -11,6 +11,7 @@ const HeaderCss = styled.div`
   top:0;
   position:fixed;
   width:100%;
+  z-index:10;
   .logo{
     padding-top:2rem;
     padding-bottom:2rem;
