@@ -1,0 +1,64 @@
+// Require
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/mixins";
+
+//veriable 
+@import "./_variables";   // 自定義的變數 scss 檔
+
+#root{
+    background-color: #F0F0F0;
+    font-family: "Noto Sans TC";
+}
+
+.fsTitle{
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.ffSO{
+    font-family: "Squada One";
+}
+
+.Fbold{
+    font-weight: bold;
+}
+
+button{
+    border: none;
+    background-color: transparent;
+}
+
+.HBDLeft{
+    border-left: 1px solid black;
+}
+
+.HovBtn{
+    :hover{
+        color: #E6553B;
+    }
+}
+
+.hrFooter{
+    border-top:4px solid black;
+    opacity:1;
+}
+
+.goCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}
+
+.textCenter{
+    text-align: center;
+}
+
+.py-80{
+    padding-top: 80px;
+    padding-bottom: 80px;;
+}
+
+.px-72{
+    padding-left: 72px;
+    padding-right:72px;
+}
