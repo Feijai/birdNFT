@@ -87,7 +87,7 @@ const ArtWorkCard: React.FC<ArtWorkCardProps> = (data) => {
                     <div className='cardInside h-100 p-3 position-relative '>
                         <div>{data.text}</div>
                         <div><FontAwesomeIcon icon={faBitcoinSign} className='icon' /><span className='ms-1'>{data.money}</span></div>
-                        <MoreBtn2 />
+                        <MoreBtn2 position='1rem'/>
                     </div>
                 </div>
             </div>

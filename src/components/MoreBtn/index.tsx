@@ -40,12 +40,12 @@ export const MoreBtn: React.FC = () => {
     )
 }
 
-const MoreBtn2Css = styled.button`
+const MoreBtn2Css = styled.button<{ position: string }>`
     padding:0px;
     background-color:white;
     border:1px solid black;
-    right:1rem;
-    bottom:1rem;
+    right:${(props) => (props.position)};
+    bottom:${(props) => (props.position)};
     font-size:18px;
     color:black;
     width:132px;
@@ -58,10 +58,13 @@ const MoreBtn2Css = styled.button`
         border-color: transparent transparent #E6553B transparent;
     }
 `
+interface MoreBtn2Props {
+    position: string
+}
 
-export const MoreBtn2: React.FC = () => {
+export const MoreBtn2: React.FC<MoreBtn2Props> = ({ position }) => {
     return (
-        <MoreBtn2Css className='position-absolute d-flex'>
+        <MoreBtn2Css className='position-absolute d-flex' position={position}>
             <div className='position-relative d-flex justify-content-center align-items-center w-100 h-100'>
                 <span className='ffSO'>more</span>
                 <div className="triangleBottom position-absolute bottom-0 end-0 "></div>
