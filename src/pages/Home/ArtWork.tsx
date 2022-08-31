@@ -80,14 +80,14 @@ const ArtWorkCardCss = styled.div`
 
 const ArtWorkCard: React.FC<ArtWorkCardProps> = (data) => {
     return (
-        <ArtWorkCardCss className='col-sm-12 col-md-6 col-lg-4 col-xxl-3 position-absolute pt-4 pt-sm-5'>
+        <ArtWorkCardCss className='col-6 col-lg-4 col-xxl-3 position-absolute pt-4 pt-sm-5'>
             <div className="CardContain p-4 position-relative">
                 <img src={data.img} alt="" className='cardImg' />
                 <div className='cardHover position-absolute top-50 start-50 translate-middle p-3'>
                     <div className='cardInside h-100 p-3 position-relative '>
                         <div>{data.text}</div>
                         <div><FontAwesomeIcon icon={faBitcoinSign} className='icon' /><span className='ms-1'>{data.money}</span></div>
-                        <MoreBtn2 position='1rem'/>
+                        <MoreBtn2 right='1rem' bottom='1rem'/>
                     </div>
                 </div>
             </div>

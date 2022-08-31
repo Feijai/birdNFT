@@ -11,7 +11,7 @@ interface SwiperComponentProps {
 
 const SwiperCss = styled.div`
     .artSwiper{
-      height:232px;
+      height:344px;
       width:100%
     }
     .swiper-slide{
@@ -30,7 +30,7 @@ const SwiperCss = styled.div`
       display:flex;
       column-gap:0.5rem;
       justify-content:center;
-      margin-top:3rem;
+      margin-top:1rem;
     }
     .swiper-pagination-bullet{
       width:0.5rem;
@@ -62,7 +62,10 @@ const SwiperCss = styled.div`
       .artSwiper{
         height:439px;
         width:100%
-    }
+      }
+      .swiper-pagination-clickable{
+        margin-top:1rem;
+      }
     }
 `
 

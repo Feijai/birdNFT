@@ -23,6 +23,7 @@ interface ArtistProps {
   firstName: string;
   lastName: string;
   text: string
+  sm: boolean
 }
 
 const ArtistCss = styled.div`
@@ -42,15 +43,14 @@ const ArtistCss = styled.div`
       }
     }
 `
-interface ArtistCardCssProps {
-  img: string
-}
-
-const ArtistCardCss = styled.div<ArtistCardCssProps>`
+const ArtistCardCss = styled.div`
   height:100%;
-  background-image : url(${(props) => (props.img)});
-  background-position: center center;
-  background-size: cover;
+  img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:bottom bottom;
+  }
   h2{
     font-size:80px;
   }
@@ -65,46 +65,60 @@ const ArtistCardCss = styled.div<ArtistCardCssProps>`
     bottom:24px;
     left:24px;
   }
-  @media (max-width: 576px) {
-    h2{
-    font-size:48px;
+  .text2{
+    z-index:10;
   }
+  @media (max-width: 576px) {
+    img{
+      height:67.44%;
+    }
+    h2{
+      font-size:32px;
+    }
+    .text{
+      width:100%;
+      bottom:0;
+      left:0;
+    }
   }
 
 `
 
 const ArtistCard: React.FC<ArtistProps> = (data) => {
   return (
-    <ArtistCardCss img={data.pic}>
-      <div className='contain position-relative d-none w-100 h-100'>
-        <div className="name position-absolute text-white">
-          <h2 className='ffSO'>{data.firstName}</h2>
-          <h2 className='ffSO'>{data.lastName}</h2>
+    <>
+      <ArtistCardCss >
+        <img src={data.pic} alt="" className='position-absolute top-0 start-0' />
+        <div className='contain position-relative d-none w-100 h-100'>
+          <div className="name position-absolute text-white">
+            <h2 className='ffSO mb-0'>{data.firstName}</h2>
+            <h2 className='ffSO mb-0'>{data.lastName}</h2>
+          </div>
+          <div className='text position-absolute p-4 '>
+            <span>{data.text}</span>
+          </div>
+          {data.sm ? <MoreBtn2 bottom='1.5rem' right='1.5rem' />
+            : <MoreBtn2 bottom='calc(32.56% + 1rem)' right='1rem' />}
         </div>
-        <div className='text position-absolute p-4 d-none d-sm-block'>
-          <span>{data.text}</span>
-        </div>
-        <MoreBtn2 position='1.5rem' />
-      </div>
-      {/* <div className='text2 p-4'>
-          <span>{data.text}</span>
-      </div> */}
-    </ArtistCardCss>
+
+      </ArtistCardCss>
+    </>
   )
 }
 
 const Artist = () => {
-  const [wd, setWd] = useState(window.innerWidth >= 1400 ? true : false)
-
+  const [wd, setWd] = useState(window.innerWidth >= 1400)
+  const [sm, setSm] = useState(window.innerWidth > 576)
 
   window.addEventListener('resize', (e) => {
     window.innerWidth >= 1400 ? setWd(true) : setWd(false)
+    window.innerWidth > 576 ? setSm(true) : setSm(false)
   })
 
   const createChildren = () => {
     return data.map((ele, idx) => {
       return (
-        <SwiperSlide key={idx}><ArtistCard {...ele} /></SwiperSlide>
+        <SwiperSlide key={idx}><ArtistCard {...ele} sm={sm} /></SwiperSlide>
       )
     })
   }
@@ -114,8 +128,8 @@ const Artist = () => {
       <ArtTitle title='Artist' text='熱門藝術家' />
       <ArtistCss>
         <div className="container">
-          {wd && <SwiperComponent children={createChildren()} slidesPerView={3} />}
-          {!wd && <SwiperComponent children={createChildren()} slidesPerView={1} />}
+          {wd ? <SwiperComponent children={createChildren()} slidesPerView={3} />
+            : <SwiperComponent children={createChildren()} slidesPerView={1} />}
 
         </div >
       </ArtistCss>
