@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import styled from 'styled-components'
 import ArtTitle from '../../components/ArtTitle'
 // Masonry layout
@@ -80,7 +80,7 @@ const ArtWorkCardCss = styled.div`
 
 const ArtWorkCard: React.FC<ArtWorkCardProps> = (data) => {
     return (
-        <ArtWorkCardCss className='col-sm-3 position-absolute pt-4 pt-sm-5'>
+        <ArtWorkCardCss className='col-sm-12 col-md-6 col-lg-4 col-xxl-3 position-absolute pt-4 pt-sm-5'>
             <div className="CardContain p-4 position-relative">
                 <img src={data.img} alt="" className='cardImg' />
                 <div className='cardHover position-absolute top-50 start-50 translate-middle p-3'>
@@ -99,6 +99,11 @@ const ArtWorkCard: React.FC<ArtWorkCardProps> = (data) => {
 }
 
 export default function ArtWork() {
+    //為了渲染
+    const [wd, setWd] = useState(window.innerWidth)
+    window.addEventListener('resize',(ele)=>{
+        setWd(window.innerWidth)
+    })
     return (
         <ArtWorkCss>
             <ArtTitle title='Artwork' text='最新藝術品' />

@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import ArtTitle from '../../components/ArtTitle'
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper";
-import 'swiper/css'; //記得要引入
+import { SwiperSlide } from "swiper/react";
 import { MoreBtn2 } from '../../components/MoreBtn'
 
 import p1 from '../../assets/artist01.jpg'
@@ -11,6 +9,7 @@ import p2 from '../../assets/artist02.jpg'
 import p3 from '../../assets/artist03.jpg'
 import p4 from '../../assets/artist04.jpg'
 import p5 from '../../assets/artist05.jpg'
+import SwiperComponent from '../../components/SwiperComponent';
 
 const data = [{ pic: p1, firstName: 'Hamburg', lastName: 'Michael', text: '​喜愛大自然，創作題材常見大山、大水、花草與樹木。' },
 { pic: p2, firstName: 'Antony', lastName: 'Wu', text: '​喜愛大自然，創作題材常見大山、大水、花草與樹木。' },
@@ -34,47 +33,10 @@ const ArtistCss = styled.div`
       padding-left:0px;
       padding-right:0px;
     }
-
-    .artSwiper{
-      height:439px;
-      width:100%
-    }
-    
-    .swiper-slide-active {
-      height:100%;
-      transition: .7s;
-      -webkit-filter:grayscale(0);
-      max-width:646px;
-      width: 100%!important;
-      .contain{
-        display:block!important;
-      }
-    }
-    .swiper-slide-prev, .swiper-slide-next{
-      overflow: hidden;
-      align-self:center;
-      -webkit-filter:grayscale(1);
-      max-width:306px;
-      height:262px;
-    } 
-    .swiper-pagination-clickable{
-      display:flex;
-      column-gap:0.5rem;
-      justify-content:center;
-      margin-top:3rem;
-    }
-    .swiper-pagination-bullet{
-      width:0.5rem;
-      height:0.5rem;
-      background-color: black;
-      display:block;
-    }
-    .swiper-pagination-bullet-active{
-      background-color: #E6553B;
-      width:1rem;
-    }
-    @media (max-width:768) {
+    @media (max-width: 576px) {
       .container{
+        padding-left:12px;
+        padding-right:12px;
         padding-top:24px;
         padding-bottom:40px;
       }
@@ -103,6 +65,11 @@ const ArtistCardCss = styled.div<ArtistCardCssProps>`
     bottom:24px;
     left:24px;
   }
+  @media (max-width: 576px) {
+    h2{
+    font-size:48px;
+  }
+  }
 
 `
 
@@ -114,44 +81,41 @@ const ArtistCard: React.FC<ArtistProps> = (data) => {
           <h2 className='ffSO'>{data.firstName}</h2>
           <h2 className='ffSO'>{data.lastName}</h2>
         </div>
-        <div className='text position-absolute p-4'>
+        <div className='text position-absolute p-4 d-none d-sm-block'>
           <span>{data.text}</span>
         </div>
         <MoreBtn2 position='1.5rem' />
       </div>
+      {/* <div className='text2 p-4'>
+          <span>{data.text}</span>
+      </div> */}
     </ArtistCardCss>
   )
 }
 
 const Artist = () => {
-  const [paginationRef, setPaginationRef] = useState<HTMLElement | null>(null);
+  const [wd, setWd] = useState(window.innerWidth >= 1400 ? true : false)
+
+
+  window.addEventListener('resize', (e) => {
+    window.innerWidth >= 1400 ? setWd(true) : setWd(false)
+  })
+
+  const createChildren = () => {
+    return data.map((ele, idx) => {
+      return (
+        <SwiperSlide key={idx}><ArtistCard {...ele} /></SwiperSlide>
+      )
+    })
+  }
 
   return (
     <>
       <ArtTitle title='Artist' text='熱門藝術家' />
       <ArtistCss>
         <div className="container">
-          <Swiper
-            loop={true}
-            slidesPerView={3}
-            slidesPerGroup={1}
-            spaceBetween={24}
-            grabCursor={true}
-            centeredSlides={true}
-            pagination={{
-              clickable: true,
-              el: paginationRef,
-            }}
-            modules={[Pagination]}
-            className="artSwiper d-none d-xxl-block"
-          >
-            {data.map((ele, idx) => {
-              return (
-                <SwiperSlide key={idx}><ArtistCard {...ele} /></SwiperSlide>
-              )
-            })}
-          </Swiper>
-          <div ref={(node) => setPaginationRef(node)} className='choose' />
+          {wd && <SwiperComponent children={createChildren()} slidesPerView={3} />}
+          {!wd && <SwiperComponent children={createChildren()} slidesPerView={1} />}
 
         </div >
       </ArtistCss>
