@@ -91,7 +91,6 @@ const PicValueCss = styled.div`
         height: 0;
         border-style: solid;
         border-width: 0 0 2rem 2rem;
-        border-color: transparent transparent #000000 transparent;
         padding:0px;
   }
   .trianglePlus{
@@ -157,8 +156,9 @@ const TableRow: React.FC<TableRowProps> = (data) => {
         <button className="add position-absolute p-0 d-lg-none"
           onClick={() => { setClickAdd(!clickAdd) }}>
           <div className='position-relative w-100 h-100'>
-            <div className='triangleBottom position-absolute bottom-0 end-0' />
-            <div className='trianglePlus position-absolute'>+</div>
+            <div className='triangleBottom position-absolute bottom-0 end-0'
+              style={{ borderColor: clickAdd ? 'transparent transparent #E6553B transparent' : 'transparent transparent #000000 transparent' }} />
+            <div className='trianglePlus position-absolute'>{clickAdd ? '-' : '+'}</div>
           </div>
         </button>
       </tr>
