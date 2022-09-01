@@ -53,20 +53,16 @@ const RankingCardCss = styled.div<{ img: string }>`
         background-size:cover;
         width:100%;
         height:374px;
-        .moreBtn3{
-            display:none;
-        }
         :hover{
-            .moreBtn3{
-                z-index:3;
+            .mask{
                 display:block;
             }
         }
     }
     .mask{
-        background-color:black;
-        z-index: 1;
-        opacity:0.5;
+        display:none;
+        background-color:rgba(0,0,0,0.5);
+        
     }
 
     .rank{

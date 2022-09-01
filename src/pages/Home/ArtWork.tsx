@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import ArtTitle from '../../components/ArtTitle'
 // Masonry layout
@@ -75,6 +75,10 @@ const ArtWorkCardCss = styled.div`
         .cardHover{
             display:block;
         }
+    }
+    @media (max-width: 576px) {
+        /* 手機不用hover */
+        pointer-events: none;
     }
 `
 

@@ -8,10 +8,11 @@ import { clickModalButtonAction } from './redux/actions/ModalAction'
 import { ModalProps } from './InterFace'
 import styled from 'styled-components';
 import Home from './pages/Home'  
+import PicValue from './pages/PicValue';
 
 const PageCss = styled.div`
   margin-top:104px;
-  @media (max-width:576px) {
+  @media (max-width:996px) {
     margin-top:51px;
   }
 `
@@ -25,7 +26,7 @@ const App: React.FC<ModalProps> = (props) => {
       <PageCss>
         <Routes>
           <Route path="/" element={< Home />} />
-        {/* <Route path="/class" element={<AllCalss />} /> */}
+          <Route path="/picvalue" element={<PicValue />} />
         </Routes>
         <Footer />
         {/* <LoginModal modalState={modalState} getLoginModal={getLoginModal} /> */}
