@@ -73,3 +73,35 @@ export const MoreBtn2: React.FC<MoreBtn2Props> = (props) => {
         </MoreBtn2Css>
     )
 }
+
+
+const MoreBtnCss3 = styled.button`
+    width:132px;
+    height:35px;
+    background-color:#E6553B;
+    right:0;
+    font-size:18px;
+    color:white;
+    border:1px solid black;
+    .triangleBottom{
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 0 16px 16px;
+        border-color: transparent transparent #000000 transparent;
+    }
+    @media (max-width: 576px) {
+        right:12px;
+    }
+`
+
+export const MoreBtn3: React.FC = () => {
+    return (
+        <MoreBtnCss3 className='position-absolute bottom-0 p-0 moreBtn3'>
+            <div className='position-relative d-flex justify-content-center align-items-center w-100 h-100'>
+                <span className='ffSO'>more</span>
+                <div className="triangleBottom position-absolute bottom-0 end-0 "></div>
+            </div>
+        </MoreBtnCss3>
+    )
+}

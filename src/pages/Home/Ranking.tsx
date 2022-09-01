@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import ArtTitle from '../../components/ArtTitle'
 import { faBitcoinSign } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { MoreBtn3 } from '../../components/MoreBtn'
+
 import p1 from '../../assets/art04.jpg'
 import p2 from '../../assets/art05.jpg'
 import p3 from '../../assets/art06.jpg'
@@ -51,7 +53,22 @@ const RankingCardCss = styled.div<{ img: string }>`
         background-size:cover;
         width:100%;
         height:374px;
+        .moreBtn3{
+            display:none;
+        }
+        :hover{
+            .moreBtn3{
+                z-index:3;
+                display:block;
+            }
+        }
     }
+    .mask{
+        background-color:black;
+        z-index: 1;
+        opacity:0.5;
+    }
+
     .rank{
         width:4rem;
         height:4rem;
@@ -60,6 +77,7 @@ const RankingCardCss = styled.div<{ img: string }>`
     .title{
         font-size:18px;
     }
+    
 `
 
 const RankingCardCss2 = styled.div`
@@ -89,6 +107,9 @@ const RankingCard: React.FC<RankingCardProps> = (data) => {
                     <div className='imgBox position-relative border border-dark'>
                         <div className='rank bg-white position-absolute d-flex justify-content-center align-items-center top-0 start-0 border border-dark'>
                             <span className='ffPO'>{data.rank}</span>
+                        </div>
+                        <div className='mask position-absolute w-100 h-100'>
+                            <div className='position-relative w-100 h-100'><MoreBtn3 /></div>
                         </div>
                     </div>
                     <div className='border border-dark title p-3 fw-bold'>
