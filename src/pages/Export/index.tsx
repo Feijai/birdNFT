@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import ArtTitle from '../../components/ArtTitle'
 import MasonryComponent from '../../components/MasonryComponent'
 
-const ArtWorkCss = styled.div`
+const ExportCss = styled.div`
     .arts{
         border-top:1px solid black;
         padding-bottom:80px;
@@ -15,14 +14,12 @@ const ArtWorkCss = styled.div`
     }
 `
 
-
-export default function ArtWork() {
+export default function Export() {
     return (
-        <ArtWorkCss>
-            <ArtTitle title='Artwork' text='最新藝術品' />
+        <ExportCss>
             <div className="container">
-                <MasonryComponent num={8} />
+                <MasonryComponent num={'all'} />
             </div>
-        </ArtWorkCss>
+        </ExportCss>
     )
 }

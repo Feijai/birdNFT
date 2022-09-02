@@ -132,7 +132,7 @@ const TableRow: React.FC<TableRowProps> = (data) => {
   return (
     <>
       <tr className='border border-dark position-relative '>
-        <th scope="row" className='idx ffPO border-end border-dark border-end border-dark'>{data.idx}</th>
+        <th scope="row" className='idx ffPO border-end border-dark border-end border-dark'>{data.idx + 1}</th>
         <td className='title'>
           <img src={data.pic} alt="" />
           <span className='ms-3 fw-bold'>{data.title}</span>

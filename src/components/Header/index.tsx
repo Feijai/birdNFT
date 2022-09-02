@@ -82,6 +82,8 @@ const HeaderCss = styled.div`
       }
       .walletBtn{
         padding:12px 0;
+        margin-bottom:24px;
+        border: 1px solid black
       }
     }
   }
@@ -111,7 +113,7 @@ export default function Header() {
           <input type="text" placeholder='搜尋作品名稱、藝術家名稱' className='HeaderInput d-none d-lg-block' />
           <button className='d-none d-lg-block'><FontAwesomeIcon icon={faMagnifyingGlass} style={{ width: '24px', height: '24px' }} /></button>
         </div>
-        <Link to='/' className="export col-1 HBDLeft d-lg-flex justify-content-center align-items-center d-none">
+        <Link to='/export' className="export col-1 HBDLeft d-lg-flex justify-content-center align-items-center d-none">
           <span className='Fbold'>探索</span>
         </Link>
         <Link to='/picvalue' className="vlaue col-1 HBDLeft d-lg-flex justify-content-center align-items-center d-none">
@@ -133,7 +135,7 @@ export default function Header() {
         <div className="container">
           <button className='exportBtn col-12 col-sm-4 m-0'><span>探索</span></button>
           <button className='valueBtn col-12 col-sm-4 m-0'><span>市值</span></button>
-          <button className='walletBtn col-12 col-sm-4 m-0'><span>連結錢包</span></button>
+          <button className='walletBtn col-12 col-sm-4 mb-4 mb-sm-0 '><span>連結錢包</span></button>
         </div>
       </div>
     </HeaderCss>
