@@ -54,7 +54,7 @@ const MasonryCard: React.FC<ArtWorkCardProps> = (data) => {
                     <div className='cardInside h-100 p-3 position-relative '>
                         <div>{data.text}</div>
                         <div><FontAwesomeIcon icon={faBitcoinSign} className='icon' /><span className='ms-1'>{data.money}</span></div>
-                        <MoreBtn2 right='1rem' bottom='1rem'/>
+                        <MoreBtn2 right='1rem' bottom='1rem' to='./'/>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useNavigate } from 'react-router-dom'
 
 const MoreBtnCss = styled.button`
     width:132px;
@@ -61,11 +62,14 @@ const MoreBtn2Css = styled.button<{ right: string, bottom: string }>`
 interface MoreBtn2Props {
     bottom: string
     right: string
+    to: string
 }
 
 export const MoreBtn2: React.FC<MoreBtn2Props> = (props) => {
+    const { to } = props
+    const navigate = useNavigate()
     return (
-        <MoreBtn2Css className='position-absolute d-flex' {...props}>
+        <MoreBtn2Css className='position-absolute d-flex' {...props} onClick={() => { navigate(to,{}) }}>
             <div className='position-relative d-flex justify-content-center align-items-center w-100 h-100'>
                 <span className='ffSO'>more</span>
                 <div className="triangleBottom position-absolute bottom-0 end-0 "></div>

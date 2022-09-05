@@ -11,6 +11,7 @@ import Home from './pages/Home'
 import PicValue from './pages/PicValue';
 import Export from './pages/Export';
 import ArtDetail from './pages/ArtDetail';
+import ArtistDetail from './pages/ArtistDetail';
 
 const PageCss = styled.div`
   margin-top:104px;
@@ -31,6 +32,7 @@ const App: React.FC<ModalProps> = (props) => {
           <Route path="/picvalue" element={<PicValue />} />
           <Route path="/export" element={<Export />} />
           <Route path="/artDetail" element={<ArtDetail />} />
+          <Route path="/artistDetail" element={<ArtistDetail />} />
         </Routes>
         <Footer />
         {/* <LoginModal modalState={modalState} getLoginModal={getLoginModal} /> */}

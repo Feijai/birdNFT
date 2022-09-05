@@ -97,8 +97,8 @@ const ArtistCard: React.FC<ArtistProps> = (data) => {
           <div className='text position-absolute p-4 '>
             <span>{data.text}</span>
           </div>
-          {data.sm ? <MoreBtn2 bottom='1.5rem' right='1.5rem' />
-            : <MoreBtn2 bottom='calc(32.56% + 1rem)' right='1rem' />}
+          {data.sm ? <MoreBtn2 bottom='1.5rem' right='1.5rem' to='/artistDetail'/>
+            : <MoreBtn2 bottom='calc(32.56% + 1rem)' right='1rem' to='/artistDetail' />}
         </div>
 
       </ArtistCardCss>
