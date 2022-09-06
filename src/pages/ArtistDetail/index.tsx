@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import ArtistNavbar from './ArtistNavbar'
 import Header from './Header'
@@ -10,11 +10,12 @@ const ArtistDetailCss = styled.div`
 `
 
 export default function ArtistDetail() {
+    const [active,setActive]=useState('works')
     return (
         <ArtistDetailCss>
             <div className="container">
                 <Header />
-                <ArtistNavbar />
+                <ArtistNavbar active={active} setActive={setActive}/>
             </div>
         </ArtistDetailCss>
     )
