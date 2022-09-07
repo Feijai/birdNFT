@@ -143,7 +143,7 @@ const RecommendCard: React.FC<RecommendCardProps> = (data) => {
                             <div><span className='name ffSO'>{data.name}</span></div>
                             <div><h2 className='mb-0'>{data.title}</h2></div>
                             <div className='text'><span >{data.text}</span></div>
-                            <MoreBtn2 bottom='1.5rem' right='1.5rem'  to='./'/>
+                            <MoreBtn2 bottom='1.5rem' right='1.5rem' to='./' position='absolute'/>
                         </div>
                     </RecommendCardCss>
                 ) :
@@ -155,7 +155,7 @@ const RecommendCard: React.FC<RecommendCardProps> = (data) => {
                             <div><span className='name ffSO '>{data.name}</span></div>
                             <div><h2 className='mb-0 fw-bold'>{data.title}</h2></div>
                             <div className='text'><span >{data.text}</span></div>
-                            <MoreBtn2 bottom='1.5rem' right='1.5rem' to='./'/>
+                            <MoreBtn2 bottom='1.5rem' right='1.5rem' to='./' position='absolute'/>
                         </div>
 
                     </RecommendCardCss2>

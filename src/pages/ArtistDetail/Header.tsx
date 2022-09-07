@@ -38,6 +38,15 @@ const HeaderCss = styled.div`
             font-family:"Squada One";
         }
     }
+    @media (max-width: 1200px) {
+        .header{
+            height:100%;
+        }
+        img{
+            width:100%;
+        }
+        
+    }
 `
 
 const data = {
@@ -53,8 +62,8 @@ const data = {
 
 export default function Header() {
     return (
-        <HeaderCss className="row">
-            <div className="art d-flex col-9 header">
+        <HeaderCss className="row d-block d-xl-flex">
+            <div className="art d-xl-flex col-xl-9 header">
                 <img src={data.pic} alt="" />
                 <div className='p-4 bg-white border border-dark'>
                     <div className='d-flex justify-content-between'>
@@ -72,7 +81,7 @@ export default function Header() {
                     </div>
                 </div>
             </div>
-            <div className=" col-3 header  ">
+            <div className="col-xl-3 header mt-3 mt-xl-0 ">
                 <div className='artdetil border border-dark h-100 bg-white'>
                     <div className='border-bottom border-dark'>
                         <span>販售中</span>

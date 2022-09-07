@@ -63,13 +63,14 @@ interface MoreBtn2Props {
     bottom: string
     right: string
     to: string
+    position: string;
 }
 
 export const MoreBtn2: React.FC<MoreBtn2Props> = (props) => {
     const { to } = props
     const navigate = useNavigate()
     return (
-        <MoreBtn2Css className='position-absolute d-flex' {...props} onClick={() => { navigate(to,{}) }}>
+        <MoreBtn2Css className={`position-${props.position} d-flex MoreBtn2`} {...props} onClick={() => { navigate(to,{}) }}>
             <div className='position-relative d-flex justify-content-center align-items-center w-100 h-100'>
                 <span className='ffSO'>more</span>
                 <div className="triangleBottom position-absolute bottom-0 end-0 "></div>

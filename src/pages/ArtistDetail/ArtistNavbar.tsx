@@ -27,7 +27,6 @@ const ArtistNavbarCss = styled.div<{ active: string }>`
   h2{
     font-size:3rem;
     align-self: center;
-
   }
   .text{
     font-size:20px;
@@ -37,6 +36,24 @@ const ArtistNavbarCss = styled.div<{ active: string }>`
   }
   .lastBorder{
     width:44.984%;
+  }
+  @media (max-width: 768px) {
+    margin-top:2.5rem;
+    .artWork{
+      width:44.047%;
+    }
+    .collect{
+      width:44.642%
+    }
+    .lastBorder{
+      width:11.311%;
+    }
+  }
+  @media (max-width: 572px) {
+    height:66px;
+    h2{
+      font-size:2rem;
+    }
   }
 `
 interface ArtistNavbarProps {
@@ -51,12 +68,12 @@ const ArtistNavbar: React.FC<ArtistNavbarProps> = (props) => {
       <div className='artWork d-flex justify-content-center h-100'
         onClick={() => { setActive('works') }}>
         <h2 className='ffSO mb-0 d-flex'>Art Works</h2>
-        <span className='text ms-3'>系列作品</span>
+        <span className='text ms-3 d-none d-xl-block'>系列作品</span>
       </div>
       <div className='collect d-flex justify-content-center h-100'
         onClick={() => { setActive('collects') }}>
         <h2 className='ffSO mb-0 d-flex'>Collection</h2>
-        <span className='text ms-3'>收藏品</span>
+        <span className='text ms-3 d-none d-xl-block'>收藏品</span>
       </div>
       <div className='border-bottom border-dark h-100 lastBorder'></div>
     </ArtistNavbarCss>
